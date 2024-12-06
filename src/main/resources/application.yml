@@ -1,0 +1,14 @@
+server:
+  port:${PORT:7504}
+
+spring:
+  datasource:
+    url: jdbc:postgresql/localhost:10001/emss
+    username: msg_user
+    password: msg_user
+  flyway:
+    url: jdbc:postgresql/localhost:10001/emss
+    user: msg_user
+    password: msg_user
+    schemas: groups
+    baseline-on-migrate: true
