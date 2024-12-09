@@ -6,21 +6,14 @@ import com.pewde.groupservice.entity.Wall;
 import com.pewde.groupservice.enums.WallType;
 import com.pewde.groupservice.exception.GroupDoesNotExistsException;
 import com.pewde.groupservice.exception.UserDoesNotExistsException;
-import com.pewde.groupservice.feign.ProfileClient;
 import com.pewde.groupservice.mapper.GroupMapper;
-import com.pewde.groupservice.mapper.RequestMapper;
 import com.pewde.groupservice.repository.GroupRepository;
 import com.pewde.groupservice.repository.UserRepository;
 import com.pewde.groupservice.request.CreateGroupRequest;
-import com.pewde.groupservice.request.CreatePostRequest;
-import com.pewde.groupservice.request.FeignCreatePostRequest;
-import com.pewde.groupservice.response.PostResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class GroupService {
