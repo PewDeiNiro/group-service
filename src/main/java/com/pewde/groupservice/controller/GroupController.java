@@ -42,11 +42,4 @@ public class GroupController {
         return groupService.createGroup(request, token);
     }
 
-    @Operation(summary = "Создание поста в группе")
-    @PostMapping("/post/create")
-    public PostResponse createPost(@RequestBody @Valid CreatePostRequest request,
-                                   @RequestHeader("Authorization") String token){
-        return groupService.createPost(request, token);
-    }
-
 }

@@ -34,11 +34,6 @@ public class GroupService {
     @Autowired
     private GroupMapper groupMapper;
 
-    @Autowired
-    private RequestMapper requestMapper;
-
-    @Autowired
-    private ProfileClient profileClient;
 
     public Group getGroupById(int id){
         return groupRepository.findById(id).orElseThrow(GroupDoesNotExistsException::new);
@@ -61,13 +56,6 @@ public class GroupService {
         return groupRepository.saveAndFlush(group);
     }
 
-    public PostResponse createPost(CreatePostRequest request, String token){
-        Group group = groupRepository.findById(request.getGroupId()).orElseThrow(GroupDoesNotExistsException::new);
-        FeignCreatePostRequest feignRequest = requestMapper.mapCreatePostRequest(request);
-        feignRequest.setWallId(group.getWall().getId());
-        Map<String, String> headers = new HashMap<>();
-        headers.put("Authorization", "Bearer " + token);
-        return profileClient.createPost(headers, feignRequest);
-    }
+
 
 }
